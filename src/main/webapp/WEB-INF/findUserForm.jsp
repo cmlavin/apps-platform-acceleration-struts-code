@@ -14,19 +14,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<title>All Users</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-    </tr>
-    <c:forEach items="${users}" var="u">
-        <tr>
-            <td>${u.id }</td>
-            <td>${u.firstName }</td>
-            <td>${u.lastName }</td>
-        </tr>
-    </c:forEach>
-</table>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:layout title="Find User">
+    <t:errorMessage message="${errorMessage}"/>
+
+    <t:form action="findUser">
+        <t:numberfield name="id" label="Enter ID" required="true"/>
+        <t:submit/>
+    </t:form>
+</t:layout>
